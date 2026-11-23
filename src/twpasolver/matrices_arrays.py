@@ -31,6 +31,8 @@ class TwoByTwoArray:
 
     def __array__(self, dtype=None, copy=None):
         """Convert the TwoByTwoArray to a numpy array."""
+        if copy is None:
+            return np.asarray(self._matarray, dtype=dtype)
         return np.array(self._matarray, dtype=dtype, copy=copy)
 
     def __getitem__(self, indices) -> Self | np.ndarray:
